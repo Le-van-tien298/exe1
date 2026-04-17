@@ -45,8 +45,9 @@
     <div class="container">
 
         <div class="box-border mb-4">
-            <a href="#">Home</a> |
-            <a href="{{ route('signout') }}" onclick="return confirm('Pro muốn đăng xuất hả?')">Đăng xuất</a>
+            <a href="{{ route('login') }}">Home</a> |
+            <a href="{{ route('signout') }}" onclick="return confirm('Pro muốn đăng xuất hả?')">Đăng xuất</a> |
+            <a href="{{ route('crud_user.create') }}">Đăng ký</a>
         </div>
 
         @yield('content')
