@@ -96,39 +96,30 @@ class CrudUserController extends Controller
     /**
      * Form update user page
      */
-    public function updateUser(Request $request)
-    {
-        $user_id = $request->get('id');
+    public function update(Request $request){
+        $user_id = $request->id;
         $user = User::find($user_id);
 
         return view('crud_user.update', ['user' => $user]);
     }
 
-    /**
-     * Submit form update user
-     */
-    public function postUpdateUser(Request $request)
-    {
-        $input = $request->all();
+    public function postUpdate(Request $request){
+    $input = $request->all();
 
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,id,' . $input['id'],
+            'email' => 'required|email|unique:users,id,'.$input['id'],
             'password' => 'required|min:6',
-            'like' => 'required',
         ]);
 
         $user = User::find($input['id']);
         $user->name = $input['name'];
         $user->email = $input['email'];
         $user->password = $input['password'];
-        $user->like = $input['like'];
-
         $user->save();
 
         return redirect("list")->withSuccess('You have signed-in');
     }
-
     /**
      * List of users
      */

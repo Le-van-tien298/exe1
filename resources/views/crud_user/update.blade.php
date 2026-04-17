@@ -1,68 +1,58 @@
-@extends('dashboard')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <a href="#">Home</a> |
+            <a href="">Đăng nhập</a> |
+            <a href="" class="active">Đăng ký</a>
+        </nav>
+    </header>
 
-@section('content')
-<main class="signup-form">
-    <div class="cotainer">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card">
-                    <h3 class="card-header text-center">Update User</h3>
-                    <div class="card-body">
-                        <form action="{{ route('user.postUpdateUser') }}" method="POST">
-                            @csrf
-                            <input name="id" type="hidden" value="{{$user->id}}">
-                            <div class="form-group mb-3">
-                                <input type="text" placeholder="Name" id="name" class="form-control" name="name"
-                                    value="{{ $user->name }}"
-                                    required autofocus>
-                                @if ($errors->has('name'))
-                                <span class="text-danger">{{ $errors->first('name') }}</span>
-                                @endif
-                            </div>
-
-
-                            <div class="form-group mb-3">
-                                <input type="text" placeholder="Name" id="phone" class="form-control" name="phone"
-                                    value="{{ $user->phone }}"
-                                    required autofocus>
-                                @if ($errors->has('phone'))
-                                <span class="text-danger">{{ $errors->first('phone') }}</span>
-                                @endif
-                            </div>
-
-
-                            <div class="form-group mb-3">
-                                <input type="text" placeholder="Email" id="email_address" class="form-control"
-                                    value="{{ $user->email }}"
-                                    name="email" required autofocus>
-                                @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
-                            </div>
-                            <div class="form-group mb-3">
-                                <input type="text" placeholder="like" id="like" class="form-control"
-                                    value="{{ $user->like }}"
-                                    name="like" required autofocus>
-                                @if ($errors->has('like'))
-                                <span class="text-danger">{{ $errors->first('like') }}</span>
-                                @endif
-                            </div>
-                            <div class="form-group mb-3">
-                                <input type="password" placeholder="Password" id="password" class="form-control"
-                                    name="password" required>
-                                @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
-                                @endif
-                            </div>
-
-                            <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">Update</button>
-                            </div>
-                        </form>
-                    </div>
+    <main class="login-container">
+        <div class="login-box">
+            <h1>Màn hình cập nhật</h1>
+            
+            <form method="POST" action="{{ route('user.postUpdate') }}">
+                @csrf
+                <input name="id" type="hidden" value="{{$user->id}}">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="name" name="name" required value="{{ $user->name }}">
                 </div>
-            </div>
+
+                <div class="input-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Nhập lại mật khẩu</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Email</label>
+                    <input type="email" id="email" name="email" required value="{{ $user->email }}">
+                </div>
+
+                <div class="actions">
+                    <a href="#" class="forgot-password">Đã có tài khoản</a>
+                    <button type="submit" class="btn-login">Đăng ký</button>
+                </div>
+            </form>
         </div>
-    </div>
-</main>
-@endsection
+    </main>
+
+    <footer>
+        Lập trình web @01/2024
+    </footer>
+</body>
+</html>

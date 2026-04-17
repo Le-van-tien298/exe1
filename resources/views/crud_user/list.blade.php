@@ -43,7 +43,7 @@
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td class="action-links">
-                <a href="{{ route('user.updateUser', ['id' => $user->id]) }}">Edit</a> |
+                <a href="{{ route('user.update', ['id' => $user->id]) }}">Edit</a> |
                 <a href="{{ route('user.readUser', ['id' => $user->id]) }}">View</a> |
                 <a href="{{ route('user.deleteUser', ['id' => $user->id]) }}">Delete</a>
             </td>
