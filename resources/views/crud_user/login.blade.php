@@ -44,7 +44,7 @@
             </div>
 
             <div class="row mb-3 align-items-center">
-                <label for="password" class="col-sm-4 col-form-label form-label">Mật khẩu</label>
+                <label for="password" class="col-sm-4 col-form-label form-label">Mật Khẩu</label>
                 <div class="col-sm-8">
                     <input type="password" id="password" class="form-control" name="password" required>
                     @if ($errors->has('password'))
@@ -68,8 +68,8 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-8 d-flex justify-content-between align-items-center">
-                    <a href="#" style="text-decoration: none; font-size: 14px; color: #0d6efd;">Quên mật khẩu</a>
-                    <button type="submit" class="btn btn-primary" style="padding: 6px 20px;">Đăng nhập</button>
+                    <a href="#" style="text-decoration: none; font-size: 14px; color: #0d6efd;">Quên Mật Khẩu</a>
+                    <button type="submit" class="btn btn-primary" style="padding: 6px 20px;">Đăng Nhập</button>
                 </div>
             </div>
 
