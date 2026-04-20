@@ -15,7 +15,6 @@
 
         .container {
             max-width: 800px;
-            /* Ép cái khung nhỏ lại vừa phải như trong hình */
             margin: auto;
         }
 
@@ -29,6 +28,7 @@
         .box-border a {
             color: #000;
             text-decoration: none;
+            width: 100%;
         }
 
         .box-border a:hover {
@@ -45,9 +45,13 @@
     <div class="container">
 
         <div class="box-border mb-4">
-            <a href="{{ route('login') }}">Home</a> |
-            <a href="{{ route('signout') }}" onclick="return confirm('Pro muốn đăng xuất hả?')">Đăng xuất</a> |
-            <a href="{{ route('crud_user.create') }}">Đăng ký</a>
+            <!-- <a href="#">Home</a> -->
+
+            @auth
+            <a href="{{ route('signout') }}" onclick="return confirm('Pro muốn nghỉ tay thiệt hả?')">Đăng xuất</a>
+            @else
+            <a href="{{ route('login') }}">Đăng nhập</a>
+            | <a href="{{ route('crud_user.create') }}">Đăng ký</a> @endauth
         </div>
 
         @yield('content')

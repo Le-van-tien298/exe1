@@ -20,6 +20,12 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="row">
+                <div class=""></div>
+                <div class="col-sm-8 d-flex justify-content-between align-items-center">
+                    <a href="{{ route('user.list') }}" class="link-blue">Quay về danh sách</a>
+                </div>
+            </div>
         </div>
     </div>
 </main>
